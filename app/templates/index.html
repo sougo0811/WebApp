@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>水資源調整システム</title>
+</head>
+<body>
+  <header>
+    ヘッダー
+  </header>
+  <main>
+    {% for data in datas %}
+      <h3>---------------</h3>
+      <input type="checkbox" name="delete" form="delete" value={{data.id}}>
+        {{ data.title }}:{{ data.body }}:{{ data.date }}
+      </input>
+    {% endfor %}
+
+    <form action="/index" method="POST">
+      <br>
+      <input type="text" name="title" placeholder="title">
+        <input type="text" name="body" placeholder="body">
+        <input type="submit" value="追加">
+    </form>
+    <form action="/delete" method="POST" id="delete">
+      <input type="submit" value="削除">
+    </form>
+    <button href="http://127.0.0.1:5000/">更新</button>
+  </main>
+  <footer>
+    フッター
+  </footer>
+</body>
+</html>
